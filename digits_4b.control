@@ -1,0 +1,4 @@
+# digits_4b extension
+comment = 'Up to 9 digits stored in 4 bytes'
+default_version = '0.0.1'
+relocatable = false
