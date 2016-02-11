@@ -47,7 +47,7 @@ LANGUAGE C IMMUTABLE STRICT;
 -- to/from text conversion
 CREATE OR REPLACE FUNCTION digits_4b_to_text(digits_4b) RETURNS text AS '$libdir/digits_4b'
 LANGUAGE C IMMUTABLE STRICT;
-CREATE OR REPLACE FUNCTION text_to_digits_4b(text) RETURNS digits_4b AS '$libdir/digits_4b'
+CREATE OR REPLACE FUNCTION digits_4b_from_text(text) RETURNS digits_4b AS '$libdir/digits_4b'
 LANGUAGE C IMMUTABLE STRICT;
 
 -- operators
@@ -117,4 +117,4 @@ CREATE OPERATOR CLASS digits_4b_ops DEFAULT FOR TYPE digits_4b USING btree AS
 
 -- cast from/to text
 CREATE CAST (digits_4b AS text) WITH FUNCTION digits_4b_to_text(digits_4b) AS ASSIGNMENT;
-CREATE CAST (text AS digits_4b) WITH FUNCTION text_to_digits_4b(text) AS ASSIGNMENT;
+CREATE CAST (text AS digits_4b) WITH FUNCTION digits_4b_from_text(text) AS ASSIGNMENT;
